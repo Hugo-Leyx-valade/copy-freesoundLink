@@ -1,0 +1,5 @@
+# Fichiers temporaires
+*.zip
+*.log
+.DS_Store
+
