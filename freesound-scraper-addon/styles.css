@@ -1,0 +1,19 @@
+#freesound-scraper-btn {
+  position: fixed;
+  right: 18px;
+  top: 100px;
+  z-index: 999999;
+  background: #610000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
+}
+#freesound-scraper-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Freesound Scraper Redirect",
+  "version": "1.0",
+  "description": "Ajoute un bouton sur freesound.org pour rediriger vers ton scrapper.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://freesound.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://freesound.org/people/*"],
+      "js": ["content-script.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
