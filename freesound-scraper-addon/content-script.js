@@ -1,14 +1,11 @@
-// === CONFIG ===
-// URL de ton scrapper — remplace par la tienne :
-const SCRAPER_BASE = "https://freesound.org/people/";
-// =================
 
-// Fonction utilitaire pour trouver un élément via XPath
+const SCRAPER_BASE = "https://freesound.org/people/";
+
+
 function getElementByXPath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
-// Crée et insère le bouton
 function createButton() {
   if (document.getElementById('freesound-scraper-btn')) return;
 
@@ -21,7 +18,6 @@ function createButton() {
     e.preventDefault();
     e.stopPropagation();
 
-    // XPath à cibler
     const targetXPath = "/html/body/div[8]/div/div/div/div[1]/div[1]/div[1]";
     const targetElem = getElementByXPath(targetXPath);
 
@@ -30,7 +26,6 @@ function createButton() {
       return;
     }
 
-    // Récupère le lien dans l'attribut data-mp3
     const mp3Link = targetElem.getAttribute('data-mp3');
 
     if (!mp3Link) {
@@ -38,11 +33,9 @@ function createButton() {
       return;
     }
 
-    // Construit l’URL finale vers le scrapper
     const url = mp3Link;
 
     setClipboard(url);
-    // Ouvre ton scrapper dans un nouvel onglet
   });
 
   document.body.appendChild(btn);
@@ -59,7 +52,6 @@ await navigator.clipboard.write([clipboardItem]);
 }
 
 
-// Ajoute le bouton au chargement
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', createButton);
 } else {
