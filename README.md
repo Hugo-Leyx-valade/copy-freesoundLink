@@ -11,7 +11,7 @@
 * Go on google extensions page (chrome://extensions/)
 * Allow Dev Mode
 * Click "Load Unpack add on"
-* Search for the folder you unziped
+* Search for the folder "freesound-scraper-addon" in the unziped directory
 * Select it
 * Then go on Freesound and go on a specifi sound (https://freesound.org/people/josefpres/sounds/830442/)
 * If you have the button at the top right then your done GG !
