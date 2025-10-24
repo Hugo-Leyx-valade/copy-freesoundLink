@@ -1,7 +1,4 @@
 
-const SCRAPER_BASE = "https://freesound.org/people/";
-
-
 function getElementByXPath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
@@ -11,8 +8,7 @@ function createButton() {
 
   const btn = document.createElement('button');
   btn.id = 'freesound-scraper-btn';
-  btn.innerText = 'Copy Link To Preview';
-  btn.title = 'Récupérer le lien data-mp3 et ouvrir ton scrapper';
+  btn.innerText = 'Copy Mp3 Link';
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -22,20 +18,18 @@ function createButton() {
     const targetElem = getElementByXPath(targetXPath);
 
     if (!targetElem) {
-      alert("❌ Impossible de trouver l’élément à ce XPath !");
+      alert("Cant find the sound 😢");
       return;
     }
 
     const mp3Link = targetElem.getAttribute('data-mp3');
 
     if (!mp3Link) {
-      alert("⚠️ L’attribut data-mp3 est introuvable !");
+      alert("The sound has no mp3 link 😢");
       return;
     }
 
-    const url = mp3Link;
-
-    setClipboard(url);
+    setClipboard(mp3.replace("-lq.mp3", "-hq.mp3"));
   });
 
   document.body.appendChild(btn);
